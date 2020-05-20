@@ -32,12 +32,17 @@ def recognizing(r):
 # used in case of latitude and longitude             
 def processing(text):
         star=list(map(str,text.split()))
-        st=['0','0','0']
-        for i in range(len(star)):                
-            if i%2==0:
-                st[int(i/2)]=star[i]
-    
-        latt='{}:{}:{}'.format(st[0] ,st[1] ,st[2])
+        st={'degrees':0,'minutes':0,'seconds':0}
+        
+        i = 0
+        while i < len(star):
+            j=star[i]
+            k=star[i+1]
+            st[k] = j
+            i+=2
+            
+        st_values=list(st.values())
+        latt='{}:{}:{}'.format(st_values[0] ,st_values[1] ,st_values[2])
         return latt
 
     
