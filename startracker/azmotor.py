@@ -13,14 +13,14 @@ CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
 SPR = 200   # Steps per Revolution (360 / 1.8)
 
-def setup():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(DIR, GPIO.OUT)
-    GPIO.setup(STEP, GPIO.OUT)
-    GPIO.output(DIR, CW)
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(DIR, GPIO.OUT)
+GPIO.setup(STEP, GPIO.OUT)
+GPIO.output(DIR, CW)
 
 def rotate(degrees):
-    step_count = degrees//(360/SPR)
+    step_count = int(degrees//(360/SPR))
     delay = 0.005 # 1/SPR
 
     for _ in range(step_count):
