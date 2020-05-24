@@ -11,7 +11,7 @@ if __name__ == "__main__":
     altAngle, azAngle = args.alt, args.az
 
     GPIO.setmode(GPIO.BCM)
-    altmotor.setup()
-    azmotor.setup()
+    GPIO.cleanup()
     altmotor.rotate(altAngle)
     azmotor.rotate(azAngle)    
+    GPIO.cleanup()
